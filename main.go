@@ -1,13 +1,16 @@
 package main
 
 import (
-	"fmt"
-
+	"github.com/manen/website/ssg/build"
 	"github.com/manen/website/ssg/pages"
 )
 
 func main() {
-	page := pages.NewPage("test page", "manen", "hey, it actually worked?")
+	page := pages.NewPage("test page", "manen", `# test page but rendered
 
-	fmt.Println(page.ToString())
+> Very WIP btw
+
+## Render yes`)
+
+	build.Build([]*pages.Page{page})
 }

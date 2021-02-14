@@ -1,21 +1,45 @@
 package pages
 
-import "strings"
+import (
+	"html/template"
+	"strings"
+
+	"github.com/yuin/goldmark"
+)
 
 // Page represents a page
 type Page struct {
-	Title, Author, Content string
+	Title, Author string
+	Content       template.HTML
 }
 
 // NewPage creates a new Page
-func NewPage(Title, Author, Content string) *Page {
+func NewPage(title, author, content string) *Page {
+	md := goldmark.New()
+	strB := &strings.Builder{}
+	err := md.Convert([]byte(content), strB)
+	if err != nil {
+		panic(err)
+	}
+
 	return &Page{
-		Title, Author, Content,
+		Title:   title,
+		Author:  author,
+		Content: template.HTML(strB.String()),
 	}
 }
 
-// ToString creates a new templated page
-func (p *Page) ToString() string {
+// ID generates and ID for a Page
+func (p *Page) ID() string {
+	r := strings.NewReplacer(" ", "-", "?", " ")
+
+	red := r.Replace(p.Title)
+
+	return strings.ToLower(red)
+}
+
+// String creates a new templated page
+func (p *Page) String() string {
 	strBuilder := &strings.Builder{}
 	tPage.Execute(strBuilder, p)
 
