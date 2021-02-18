@@ -1,6 +1,7 @@
 package pages
 
 import (
+	"fmt"
 	"strings"
 )
 
@@ -25,6 +26,8 @@ func (i *Index) ID() string {
 func (i *Index) String() string {
 	strBuilder := &strings.Builder{}
 	tIndex.Execute(strBuilder, i)
+
+	fmt.Println("Rendered " + i.ID())
 
 	return strBuilder.String()
 }

@@ -1,6 +1,7 @@
 package pages
 
 import (
+	"fmt"
 	"html/template"
 	"strings"
 
@@ -42,6 +43,8 @@ func (p *Page) ID() string {
 func (p *Page) String() string {
 	strBuilder := &strings.Builder{}
 	tPage.Execute(strBuilder, p)
+
+	fmt.Println("Rendered " + p.ID())
 
 	return strBuilder.String()
 }
