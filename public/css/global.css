@@ -1,4 +1,16 @@
+html {
+  height: 100%;
+}
+
 body {
   background-color: #141414;
   color: #ffffff;
+  margin: 0px;
+  text-align: center;
+  height: 100%;
+}
+
+a {
+  color: #ffffff;
+  text-decoration: underline solid;
 }

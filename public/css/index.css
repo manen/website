@@ -1,0 +1,23 @@
+.header {
+  background-color: #242424;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.header-name {
+  margin: 0px;
+}
+
+.content {
+  margin: 5rem;
+}
+
+.list {
+  margin: 2.5rem;
+}
+
+.list-element {
+  margin: 0.5rem;
+}

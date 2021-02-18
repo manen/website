@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/global.css" />
+    <link rel="stylesheet" href="/css/index.css" />
+    <title>uhm things</title>
+  </head>
+  <body>
+    <header class="header">
+      <h1 class="header-name">manen</h1>
+      <p class="header-sub">'s stuff and things</p>
+    </header>
+    <div class="content">
+      posts and things
+      <div class="list">
+        {{ range .Pages }}
+        <div class="list-element list-{{ .ID }}">
+          <a class="list-link list-{{ .ID }}-link" href="/{{ .ID }}.html"
+            >{{ .Title }}</a
+          >
+          {{ if ne .Author "manen" }} by {{ .Author }} {{ end }}
+        </div>
+        {{ end }}
+      </div>
+    </div>
+  </body>
+</html>

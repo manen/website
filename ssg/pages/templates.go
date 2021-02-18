@@ -6,7 +6,8 @@ import (
 )
 
 var (
-	tPage *template.Template
+	tPage  *template.Template
+	tIndex *template.Template
 )
 
 func init() {
@@ -14,10 +15,19 @@ func init() {
 	if err != nil {
 		panic(err)
 	}
+	index, err := ioutil.ReadFile("./pages/index.html")
+	if err != nil {
+		panic(err)
+	}
 
 	pageStr := string(page)
+	indexStr := string(index)
 
 	tPage, err = template.New("page").Parse(pageStr)
+	if err != nil {
+		panic(err)
+	}
+	tIndex, err = template.New("index").Parse(indexStr)
 	if err != nil {
 		panic(err)
 	}

@@ -12,5 +12,7 @@ func main() {
 
 ## Render yes`)
 
-	build.Build([]*pages.Page{page})
+	otherPageAndYesIRefuseToUseAnArray := pages.NewPage("test page but no", "joe", "joe who?")
+
+	build.Build([]*pages.Page{page, otherPageAndYesIRefuseToUseAnArray})
 }
