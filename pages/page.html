@@ -8,11 +8,19 @@
     <title>{{ .Title }}</title>
   </head>
   <body>
-    <article>
-      <h1>{{ .Title }}</h1>
-      <h3>by {{ .Author }}</h3>
-      <div class="content">
-        <p>{{ .Content }}</p>
+    <article class="article article-{{ .ID }}">
+      <div class="article-header article-{{ .ID }}-header">
+        <h1 class="article-title article-{{ .ID }}-title">{{ .Title }}</h1>
+        {{ if ne .Author "manen" }}
+        <h3 class="article-author article-{{ .ID }}-author">
+          by {{ .Author }}
+        </h3>
+        {{ end }}
+      </div>
+      <div class="article-content article-{{ .ID }}-content">
+        <p class="article-content-rendered article-{{ .ID }}-content-rendered">
+          {{ .Content }}
+        </p>
       </div>
     </article>
   </body>
