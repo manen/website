@@ -32,7 +32,7 @@ func NewPage(title, author, content string) *Page {
 
 // ID generates and ID for a Page
 func (p *Page) ID() string {
-	r := strings.NewReplacer(" ", "-", "?", " ")
+	r := strings.NewReplacer(" ", "-", "?", "-", "/", "-", "\\", "-")
 
 	red := r.Replace(p.Title)
 
