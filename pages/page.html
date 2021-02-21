@@ -7,6 +7,25 @@
     <link rel="stylesheet" href="/css/page.css" />
     <script src="/js/to.js"></script>
     <title>{{ .Title }}</title>
+
+    <meta name="title" content="{{ .Title }}" />
+    <meta name="description" content="by {{ .Author }}" />
+    <meta name="keywords" content="{{ .Title }}, {{ .Author }}, manen, blog" />
+    <meta name="robots" content="index, follow" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="language" content="English" />
+    <meta name="author" content="{{ .Author }}" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://manen.me" />
+    <meta property="og:title" content="{{ .Title }}" />
+
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://manen.me" />
+    <meta property="twitter:title" content="{{ .Title }}" />
+    <meta property="twitter:description" content="by {{ .Author }}" />
+
+    <meta name="theme-color" content="#242424" />
   </head>
   <body>
     <article class="article article-{{ .ID }}">
