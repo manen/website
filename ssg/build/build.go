@@ -8,6 +8,8 @@ import (
 )
 
 // Build is the main build function
+//
+// It will use ps to calculate everything
 func Build(ps []*pages.Page) {
 	copyPublic()
 	for _, p := range ps {

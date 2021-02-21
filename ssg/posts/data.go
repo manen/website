@@ -6,18 +6,24 @@ import (
 	"io/ioutil"
 )
 
+// Data represents data about the website
+// (./posts/data.json)
 type Data struct {
 	Posts []*PostData `json:"posts"`
 }
 
+// PostData is data about a post
 type PostData struct {
 	Title  string `json:"title"`
 	ID     string `json:"id"`
 	Author string `json:"author"`
 }
 
+// data is an initialized copy of ./posts/data.json
+// (initialized in init)
 var data Data
 
+// init initialized data
 func init() {
 	bytes, err := ioutil.ReadFile("./posts/data.json")
 	if err != nil {
