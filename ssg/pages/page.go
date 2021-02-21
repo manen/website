@@ -10,12 +10,12 @@ import (
 
 // Page represents a page
 type Page struct {
-	Title, Author string
-	Content       template.HTML
+	Title, ID, Author string
+	Content           template.HTML
 }
 
 // NewPage creates a new Page
-func NewPage(title, author, content string) *Page {
+func NewPage(title, id, author, content string) *Page {
 	md := goldmark.New()
 	strB := &strings.Builder{}
 	err := md.Convert([]byte(content), strB)
@@ -25,18 +25,10 @@ func NewPage(title, author, content string) *Page {
 
 	return &Page{
 		Title:   title,
+		ID:      id,
 		Author:  author,
 		Content: template.HTML(strB.String()),
 	}
-}
-
-// ID generates and ID for a Page
-func (p *Page) ID() string {
-	r := strings.NewReplacer(" ", "-", "?", "-", "/", "-", "\\", "-")
-
-	red := r.Replace(p.Title)
-
-	return strings.ToLower(red)
 }
 
 // String creates a new templated page
@@ -44,7 +36,7 @@ func (p *Page) String() string {
 	strBuilder := &strings.Builder{}
 	tPage.Execute(strBuilder, p)
 
-	fmt.Println("Rendered " + p.ID())
+	fmt.Println("Rendered " + p.ID)
 
 	return strBuilder.String()
 }

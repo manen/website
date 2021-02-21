@@ -12,6 +12,7 @@ type Data struct {
 
 type PostData struct {
 	Title  string `json:"title"`
+	ID     string `json:"id"`
 	Author string `json:"author"`
 }
 
