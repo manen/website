@@ -1,9 +1,9 @@
 {
   "posts": [
     {
-      "title": "Page whatever?",
-      "id": "oh-god",
-      "author": "what"
+      "title": "Static-Site-Generation blog using Go templates",
+      "id": "ssg-blog-using-go-template",
+      "author": "manen"
     }
   ]
 }
