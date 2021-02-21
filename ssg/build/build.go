@@ -25,4 +25,6 @@ func Build(ps []*pages.Page) {
 	if err != nil {
 		fmt.Println(err)
 	}
+
+	fmt.Println("Build done")
 }

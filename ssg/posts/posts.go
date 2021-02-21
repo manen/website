@@ -1,6 +1,7 @@
 package posts
 
 import (
+	"fmt"
 	"io/ioutil"
 	"path"
 
@@ -18,6 +19,8 @@ func ResolvePosts() []*pages.Page {
 		}
 		posts = append(posts, pages.NewPage(post.Title, post.ID, post.Author, string(bytes)))
 	}
+
+	fmt.Println("All posts resolved")
 
 	return posts
 }

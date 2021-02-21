@@ -30,12 +30,10 @@ func init() {
 		panic(err)
 	}
 
-	fmt.Println(string(bytes))
-
 	err = json.Unmarshal(bytes, &data)
 	if err != nil {
 		panic(err)
 	}
 
-	fmt.Println(data)
+	fmt.Println("Data loaded")
 }
