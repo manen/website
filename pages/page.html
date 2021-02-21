@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/css/global.css" />
     <link rel="stylesheet" href="/css/page.css" />
+    <script src="/js/to.js"></script>
     <title>{{ .Title }}</title>
   </head>
   <body>
@@ -24,7 +25,8 @@
       </div>
     </article>
     <div class="back-container">
-      <a class="back-button" href="/">Back</a>
+      <noscript><a class="back-button" href="/">Back</a></noscript>
+      <a class="back-button" onclick="to('/')" href="">Back</a>
     </div>
   </body>
 </html>
