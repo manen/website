@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/global.css" />
+    <link rel="stylesheet" href="/css/page.css" />
+    <title>{{ .Title }}</title>
+  </head>
+  <body>
+    <article class="article article-{{ .ID }}">
+      <div class="article-header article-{{ .ID }}-header">
+        <h1 class="article-title article-{{ .ID }}-title">{{ .Title }}</h1>
+        {{ if ne .Author "manen" }}
+        <h3 class="article-author article-{{ .ID }}-author">
+          by {{ .Author }}
+        </h3>
+        {{ end }}
+      </div>
+      <div class="article-content article-{{ .ID }}-content">
+        <p class="article-content-rendered article-{{ .ID }}-content-rendered">
+          {{ .Content }}
+        </p>
+      </div>
+    </article>
+    <div class="back-container">
+      <a class="back-button" href="/">Back</a>
+    </div>
+  </body>
+</html>

@@ -1,9 +1,10 @@
 package main
 
 import (
-	"fmt"
+	"github.com/manen/website/ssg/build"
+	"github.com/manen/website/ssg/posts"
 )
 
 func main() {
-	fmt.Println("Hello World!")
+	build.Build(posts.ResolvePosts())
 }
