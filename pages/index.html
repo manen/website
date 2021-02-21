@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/css/global.css" />
     <link rel="stylesheet" href="/css/index.css" />
+    <script src="/js/to.js"></script>
     <title>uhm things</title>
   </head>
   <body>
@@ -17,9 +18,19 @@
       <div class="list">
         {{ range .Pages }}
         <div class="list-element list-{{ .ID }}">
-          <a class="list-link list-{{ .ID }}-link" href="/{{ .ID }}.html"
-            >{{ .Title }}</a
-          >
+          <span class="list-link-container">
+            <noscript>
+              <a class="list-link list-{{ .ID }}-link" href="/{{ .ID }}.html"
+                >{{ .Title }}</a
+              >
+            </noscript>
+            <a
+              class="list-link list-{{ .ID }}-link"
+              onclick="to('/{{ .ID }}.html')"
+              href=""
+              >{{ .Title }}</a
+            >
+          </span>
           {{ if ne .Author "manen" }} by {{ .Author }} {{ end }}
         </div>
         {{ end }}
